@@ -27,6 +27,10 @@
     <script src="js/libs/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+    <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
+
+
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" type="text/css" rel="stylesheet"/>
     <link href="css/keybox.css" type="text/css" rel="stylesheet"/>
@@ -251,9 +255,9 @@
             <table align="center">
                 <tr>
                     <td>
-                        <span class="badge-paypal"><a href="https://www.paypal.me/SKavanagh"
-                                                      title="Donate to this project using Paypal"><img
-                                src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button"/></a></span>&nbsp;
+                        <a class="btn btn-primary custom-dbox-popup"
+                           href="https://donorbox.org/keybox"
+                           role="button">Dontate</a>
                     </td>
                 </tr>
             </table>
