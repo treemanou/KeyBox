@@ -27,9 +27,6 @@
     <script src="js/libs/respond.min.js"></script>
     <![endif]-->
 
-    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
-    <script> window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' } </script>
-
 
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" type="text/css" rel="stylesheet"/>
@@ -61,6 +58,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#setup">Install</a></li>
                         <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="latest-release.html">Download</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">See More <b
@@ -214,7 +212,7 @@
             <p><a class="btn btn-primary" href="javascript:window.open('https://github.com/skavanagh/KeyBox');"
                   role="button">View on Github &raquo;</a>
                 <a class="btn btn-primary"
-                   href="javascript:window.open('https://github.com/skavanagh/KeyBox/releases');"
+                   href="latest-release.html"
                    role="button">Download Latest &raquo;</a>
             </p>
 
@@ -246,8 +244,7 @@
             <table align="center">
                 <tr>
                     <td>
-                        <a class="btn btn-primary custom-dbox-popup"
-                           href="https://donorbox.org/keybox"
+                        <a id="donate-btn" class="btn btn-primary"
                            role="button">Donate</a>
                     </td>
                 </tr>
@@ -576,6 +573,35 @@
         });
     });
 </script>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_rivS0dVDBUr57siJO1gigNBC',
+        image: 'http://sshkeybox.com/img/keybox_100x100.png',
+        locale: 'auto',
+        token: function(token) {
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+        }
+    });
+
+    document.getElementById('donate-btn').addEventListener('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+            name: 'KeyBox',
+            description: 'Donate - 20 USD',
+            amount: 2000
+        });
+        e.preventDefault();
+    });
+
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function() {
+        handler.close();
+    });
+</script>
+
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
