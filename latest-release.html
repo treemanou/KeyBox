@@ -11,7 +11,7 @@
     <meta name="author" content="Sean Kavanagh">
     <link rel="shortcut icon" href="img/keybox.ico">
 
-    <title>KeyBox - Latest Release</title>
+    <title>KeyBox - Download</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -55,20 +55,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#setup">Install</a></li>
-                        <li><a href="index.html#benefits">Benefits</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
                         <li><a href="latest-release.html">Download</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">See More <b
-                                    class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.html#see_more_ec2box">EC2Box</a></li>
-                                <li><a href="index.html#see_more_openshift">KeyBox-OpenShift</a></li>
-                            </ul>
-                        </li>
-
+                        <li><a href="see-more.html">See More</a></li>
                     </ul>
                     <div class="navbar-collapse collapse navbar-right">
                         <ul class="nav navbar-nav" style="vertical-align: middle">
@@ -105,21 +95,6 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container marketing">
-
-    <hr class="featurette-divider">
-    <div class="row featurette">
-
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- KeyBox -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-9129349117934340"
-             data-ad-slot="9673832716"
-             data-ad-format="auto"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
 
     <!-- /.container -->
 
@@ -173,69 +148,107 @@
             </p>
 
         </div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- KeyBox -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9129349117934340"
+             data-ad-slot="9673832716"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('#myCarousel').carousel({
-                interval: 1000 * 10
-            });
-        });
 
-    </script>
+    <hr class="featurette-divider">
+    <!-- /END THE FEATURETTES -->
 
-    <script src="https://checkout.stripe.com/checkout.js"></script>
 
-    <script>
-        var handler = StripeCheckout.configure({
-            key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
-            image: 'http://sshkeybox.com/img/keybox_100x100.png',
-            locale: 'auto',
-            token: function (token) {
-                // You can access the token ID with `token.id`.
-                // Get the token ID to your server-side code for use.
-            },
-            closed: function () {
-                var btns = document.getElementsByClassName("btn-primary");
-                for (var i = 0; i < btns.length; i++) {
-                    btns[i].removeAttribute('disabled');
-                }
+    <!-- FOOTER -->
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=watch&count=true"
+                            height="30" width="100" frameborder="0" scrolling="0" style="width:100px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=fork&count=true"
+                            height="30" width="100" frameborder="0" scrolling="0" style="width:100px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&type=follow&count=true"
+                            height="30" width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+            </tr>
+        </table>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+
+        <p>&copy; 2017 Loophole, LLC</p>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="assets/js/docs.min.js"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<script>
+    var handler = StripeCheckout.configure({
+        key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
+        image: 'http://sshkeybox.com/img/keybox_100x100.png',
+        locale: 'auto',
+        token: function (token) {
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+        },
+        closed: function () {
+            var btns = document.getElementsByClassName("btn-primary");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].removeAttribute('disabled');
             }
-        });
+        }
+    });
 
-        // Open Checkout with further options:
-        handler.open({
-            name: 'KeyBox',
-            description: 'Donate - 5 USD',
-            amount: 500
-        });
+    // Open Checkout with further options:
+    handler.open({
+        name: 'KeyBox',
+        description: 'Donate - 5 USD',
+        amount: 500
+    });
 
-        // Close Checkout on page navigation:
-        window.addEventListener('popstate', function () {
-            handler.close();
-        });
-    </script>
-    <script type="text/javascript">
+    // Close Checkout on page navigation:
+    window.addEventListener('popstate', function () {
+        handler.close();
+    });
+</script>
+<script type="text/javascript">
+    <
+    script
+    type = "text/javascript" >
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-38369800-1']);
-        _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38369800-1']);
+    _gaq.push(['_trackPageview']);
 
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
-    </script>
+</script>
 </body>
 </html>

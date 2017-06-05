@@ -11,7 +11,7 @@
     <meta name="author" content="Sean Kavanagh">
     <link rel="shortcut icon" href="img/keybox.ico">
 
-    <title>KeyBox - Web-Based SSH Access and Key Management</title>
+    <title>KeyBox - See More</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -93,91 +93,6 @@
 </div>
 
 
-<!-- Carousel
-================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="img/1500x450/select_terminal_windows.png" alt="Composite SSH Terminals">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><b>Composite SSH Terminals</b></h1>
-
-                    <p>Manage SSH sessions simultaneously on multiple systems.</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#terms" role="button">Learn More</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="img/1500x450/two-factor.png" alt="Composite SSH Terminals">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><b>Two-Factor Authentication</b></h1>
-
-                    <p>Supports Two-Factor Authentication via FreeOTP or Google Authenticator</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#two-factor" role="button">Learn More</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="img/1500x450/manage_users.png" alt="Control User Access">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><b>Control User Access</b></h1>
-
-                    <p>Manage users and limit their access through system profiles</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#access" role="button">Learn More</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="img/1500x450/define_public_keys.png" alt="Manage &amp; Distribute Public SSH Keys">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><b>Manage Public SSH Keys</b></h1>
-
-                    <p>Define, manage, and distribute public SSH keys to defined systems</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#public_keys" role="button">Learn More</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="img/1500x450/audit_sessions.png" alt="Audit SSH Sessions">
-
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1><b>Audit SSH Sessions</b></h1>
-
-                    <p>Audit the system activity of users from a single location</p>
-
-                    <p><a class="btn btn-lg btn-primary" href="#audit" role="button">Learn More</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
-            class="glyphicon glyphicon-chevron-left"></span></a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span
-            class="glyphicon glyphicon-chevron-right"></span></a>
-</div>
-<!-- /.carousel -->
-
-
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -185,64 +100,45 @@
 
 <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
+    <hr class="featurette-divider">
+    <div class="row featurette">
 
-    <div class="row">
-        <div class="col-lg-4">
+        <div class="col-md-7">
 
+            <a name="see_more_ec2box"></a>
 
-            <h2>KeyBox</h2>
+            <h2 class="featurette-heading">EC2Box</h2>
 
-
-            <p>KeyBox is an open-source web-based SSH console that centrally manages administrative access to
-                systems.</p>
-
-            <p>It acts as a bastion host for administrators with features that promote infrastructure security. </p>
-
-            <p><a class="btn btn-primary" href="javascript:window.open('https://github.com/skavanagh/KeyBox');"
-                  role="button">View on Github &raquo;</a>
-                <a class="btn btn-primary"
-                   href="latest-release.html"
-                   role="button">Download Latest &raquo;</a>
+            <p class="lead">
+                A web-based ssh console to execute commands and manage multiple EC2 instances simultaneously running on
+                Amazon Web Services (AWS). EC2Box allows you to share terminal commands and upload files to all your EC2
+                instances. Once the sessions have been opened you can select a single EC2 instance or any combination to
+                run your commands. Also, additional instance administrators can be added and their terminal sessions and
+                history can be audited.
             </p>
 
+            <p>
+                <a class="btn btn-primary" href="javascript:window.open('https://github.com/skavanagh/EC2Box');"
+                   role="button">View on Github &raquo;</a></p>
+            <hr class="featurette-divider">
+
+            <a name="see_more_openshift"></a>
+
+            <h2 class="featurette-heading">KeyBox-OpenShift</h2>
+
+            <p class="lead">A web-based SSH console for OpenShift. Connect and share terminal commands on multiple gears
+                simultaneously.</p>
+
+            <p>
+                <a class="btn btn-primary"
+                   href="javascript:window.open('https://github.com/skavanagh/KeyBox-OpenShift');"
+                   role="button">View on Github &raquo;</a></p>
 
         </div>
-
-        <div class="col-lg-4">
-            <a name="setup"></a>
-
-            <h2>Easy Install &amp; Setup</h2>
-
-            <p>Runs on any Java enabled system (Java is not required on client browser)</p>
-
-            <p>Requires JDK 1.8 or greater<br/>A web socket supported browser</p>
-
-            <p><a class="btn btn-success" href="javascript:window.open('https://github.com/skavanagh/KeyBox#keybox');"
-                  role="button">View README &raquo;</a></p>
+        <div class="col-md-5" style="float:right;">
+            <img class="featurette-image img-responsive" data-src="img/500x300/ec2box.png/500x300/auto"
+                 src="img/500x300/ec2box.png" alt="EC2Box: Web-based SSH console for AWS EC2"/></img>
         </div>
-
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <a name="contact"></a>
-
-            <h2>How can you support?</h2>
-
-            <p>This project is opensource under the Apache 2.0 licence and contributions are welcome!</p>
-
-            <p>Donations are always welcome. Any small contribution will keep this project running!</p>
-            <table align="center">
-                <tr>
-                    <td>
-                        <a id="donate-btn" class="btn btn-primary"
-                           role="button">Donate</a>
-                    </td>
-                </tr>
-            </table>
-
-
-        </div>
-
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- KeyBox -->
         <ins class="adsbygoogle"
@@ -253,10 +149,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-
-
     </div>
-    <!-- /.row -->
 
 
     <hr class="featurette-divider">
@@ -299,43 +192,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="assets/js/docs.min.js"></script>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('#myCarousel').carousel({
-            interval: 1000 * 10
-        });
-    });
-</script>
-
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<script>
-    var handler = StripeCheckout.configure({
-        key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
-        image: 'http://sshkeybox.com/img/keybox_100x100.png',
-        locale: 'auto',
-        token: function (token) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-        }
-    });
-
-    document.getElementById('donate-btn').addEventListener('click', function (e) {
-        // Open Checkout with further options:
-        handler.open({
-            name: 'KeyBox',
-            description: 'Donate - 20 USD',
-            amount: 2000
-        });
-        e.preventDefault();
-    });
-
-
-    // Close Checkout on page navigation:
-    window.addEventListener('popstate', function () {
-        handler.close();
-    });
-</script>
 
 <script type="text/javascript">
 
