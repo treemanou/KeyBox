@@ -50,7 +50,48 @@
                     </button>
                     <div class="navbar-brand">
                         <div class="nav-img"><img src="img/keybox_40x40.png"/></div>
-                        &nbsp;&nbsp;KeyBox - Download Latest
+                        &nbsp;&nbsp;<a href="index.html" style="color:inherit;text-decoration: inherit;">KeyBox</a>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#setup">Install</a></li>
+                        <li><a href="index.html#benefits">Benefits</a></li>
+                        <li><a href="latest-release.html">Download</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">See More <b
+                                    class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.html#see_more_ec2box">EC2Box</a></li>
+                                <li><a href="index.html#see_more_openshift">KeyBox-OpenShift</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <div class="navbar-collapse collapse navbar-right">
+                        <ul class="nav navbar-nav" style="vertical-align: middle">
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=watch"
+                                        height="30" width="60" frameborder="0" scrolling="0"
+                                        style="width:60px; height: 30px;" allowTransparency="true"></iframe>
+                            </li>
+
+
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=fork"
+                                        height="30" width="60" frameborder="0" scrolling="0"
+                                        style="width:60px; height: 30px;" allowTransparency="true"></iframe>
+                            </li>
+
+
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&type=follow" height="30"
+                                        width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;"
+                                        allowTransparency="true"></iframe>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -65,7 +106,6 @@
 <!-- Wrap the rest of the page in another container to center all the content. -->
 <div class="container marketing">
 
-    <hr class="featurette-divider">
     <div class="row featurette">
 
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -86,13 +126,14 @@
     <div class="row featurette">
         <div class="col-md-7">
             <a name="keybox"></a>
+
             <h2 class="featurette-heading">KeyBox</h2>
             <h4>Latest Release - 2.90.00</h4>
 
             <p>
                 <a class="btn btn-primary"
                    href="releases/keybox/keybox-jetty-v2.90_00.tar.gz"
-                   role="button">Download Latest</a>
+                   role="button" disabled="true">Download Latest</a>
             </p>
             <br/>
 
@@ -111,13 +152,14 @@
     <div class="row featurette">
         <div class="col-md-7">
             <a name="ec2box"></a>
+
             <h2 class="featurette-heading">EC2Box</h2>
             <h4>Latest Release - 0.31.00</h4>
 
             <p>
                 <a class="btn btn-primary"
                    href="releases/ec2box/ec2box-jetty-v0.31_00.tar.gz"
-                   role="button">Download Latest</a>
+                   role="button" disabled="true">Download Latest</a>
             </p>
             <br/>
 
@@ -145,7 +187,7 @@
             });
         });
 
-   </script>
+    </script>
 
     <script src="https://checkout.stripe.com/checkout.js"></script>
 
@@ -154,22 +196,27 @@
             key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
             image: 'http://sshkeybox.com/img/keybox_100x100.png',
             locale: 'auto',
-            token: function(token) {
+            token: function (token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
+            },
+            closed: function () {
+                var btns = document.getElementsByClassName("btn-primary");
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].removeAttribute('disabled');
+                }
             }
         });
 
-       // Open Checkout with further options:
-       handler.open({
-                name: 'KeyBox',
-                description: 'Donate - 5 USD',
-                amount: 500,
-       });
-       e.preventDefault();
+        // Open Checkout with further options:
+        handler.open({
+            name: 'KeyBox',
+            description: 'Donate - 5 USD',
+            amount: 500
+        });
 
         // Close Checkout on page navigation:
-        window.addEventListener('popstate', function() {
+        window.addEventListener('popstate', function () {
             handler.close();
         });
     </script>

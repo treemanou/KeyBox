@@ -50,7 +50,7 @@
                     </button>
                     <div class="navbar-brand">
                         <div class="nav-img"><img src="img/keybox_40x40.png"/></div>
-                        &nbsp;&nbsp;KeyBox
+                        &nbsp;&nbsp;<a href="index.html" style="color:inherit;text-decoration: inherit;">KeyBox</a>
                     </div>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -580,13 +580,13 @@
         key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
         image: 'http://sshkeybox.com/img/keybox_100x100.png',
         locale: 'auto',
-        token: function(token) {
+        token: function (token) {
             // You can access the token ID with `token.id`.
             // Get the token ID to your server-side code for use.
         }
     });
 
-    document.getElementById('donate-btn').addEventListener('click', function(e) {
+    document.getElementById('donate-btn').addEventListener('click', function (e) {
         // Open Checkout with further options:
         handler.open({
             name: 'KeyBox',
@@ -596,8 +596,9 @@
         e.preventDefault();
     });
 
+
     // Close Checkout on page navigation:
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
         handler.close();
     });
 </script>
