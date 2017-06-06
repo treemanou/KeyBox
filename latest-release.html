@@ -57,8 +57,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="about.html">About</a></li>
                         <li><a href="features.html">Features</a></li>
-                        <li><a href="latest-release.html">Download</a></li>
                         <li><a href="see-more.html">See More</a></li>
+                        <li><a href="latest-release.html">Download</a></li>
                     </ul>
                     <div class="navbar-collapse collapse navbar-right">
                         <ul class="nav navbar-nav" style="vertical-align: middle">
@@ -109,7 +109,7 @@
             <p>
                 <a class="btn btn-primary"
                    href="releases/keybox/keybox-jetty-v2.90_00.tar.gz"
-                   role="button" disabled="true">Download Latest</a>
+                   role="button" disabled="true" onclick="_gaq.push(['_trackEvent', 'Click', 'KeyBox Download']);">Download Latest</a>
             </p>
             <br/>
 
@@ -135,7 +135,7 @@
             <p>
                 <a class="btn btn-primary"
                    href="releases/ec2box/ec2box-jetty-v0.31_00.tar.gz"
-                   role="button" disabled="true">Download Latest</a>
+                   role="button" disabled="true" onclick="_gaq.push(['_trackEvent', 'Click', 'EC2Box Download']);">Download Latest</a>
             </p>
             <br/>
 
@@ -202,7 +202,7 @@
 <script src="assets/js/docs.min.js"></script>
 <script src="https://checkout.stripe.com/checkout.js"></script>
 
-<script>
+<script type="text/javascript">
     var handler = StripeCheckout.configure({
         key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
         image: 'http://sshkeybox.com/img/keybox_100x100.png',
@@ -232,9 +232,6 @@
     });
 </script>
 <script type="text/javascript">
-    <
-    script
-    type = "text/javascript" >
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-38369800-1']);
