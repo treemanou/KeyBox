@@ -233,7 +233,7 @@
 
             <p>Donations are always welcome. Any small contribution will keep this project running!</p>
             <div>
-                <a id="donate-btn" class="btn btn-primary" role="button">Donate</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KKRTX5GB9GDF8" class="btn btn-primary" role="button">Donate</a>
             </div>
 
         </div>
@@ -255,9 +255,34 @@
 
 
     </div>
-    <!-- /.row -->
+
 
     <div class="row">
+
+        <!-- /.col-lg-12 -->
+        <div class="col-lg-6">
+
+            <h2>AWS Marketplace</h2>
+
+            <p>EC2Box is now in the AWS Marketplace, making it easy to get started with an SSH console for AWS. More coming soon! </p>
+
+            <a class="btn btn-primary"
+                href="https://aws.amazon.com/marketplace/seller-profile?id=9be0783e-f459-421c-888c-8a5144d404e2"
+                role="button">See our apps</a>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <img src="img/aws-marketplace.png" alt="AWS Marketplace">
+
+        </div>
+    </div>
+
+    <!-- /.row -->
+
+    <hr class="featurette-divider">
+    <div class="row featurette">
 
         <!-- /.col-lg-12 -->
         <div class="col-lg-12">
@@ -269,12 +294,10 @@
             <ul>
 
                 <li><a  href="mailto:support@sshkeybox.com" role="button">support@sshkeybox.com</a></li>
-                <li>Phone : 502-640-0149</li>
             </ul>
             <p>Software issues can also be reported through <a href="http://github.com/skavanagh/KeyBox/issues">Github</a></p>
         </div>
     </div>
-
 
 
 
@@ -320,35 +343,6 @@
         $('#myCarousel').carousel({
             interval: 1000 * 10
         });
-    });
-</script>
-
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<script type="text/javascript">
-    var handler = StripeCheckout.configure({
-        key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
-        image: 'http://sshkeybox.com/img/keybox_100x100.png',
-        locale: 'auto',
-        token: function (token) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-        }
-    });
-
-    document.getElementById('donate-btn').addEventListener('click', function (e) {
-        // Open Checkout with further options:
-        handler.open({
-            name: 'KeyBox',
-            description: 'Donate - 20 USD',
-            amount: 2000
-        });
-        e.preventDefault();
-    });
-
-
-    // Close Checkout on page navigation:
-    window.addEventListener('popstate', function () {
-        handler.close();
     });
 </script>
 

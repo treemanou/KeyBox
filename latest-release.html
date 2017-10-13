@@ -110,7 +110,7 @@
             <p>
                 <a class="btn btn-primary"
                    href="https://github.com/skavanagh/KeyBox/releases/download/v2.90.01/keybox-jetty-v2.90_01.tar.gz"
-                   role="button" disabled="true" onclick="_gaq.push(['_trackEvent', 'Click', 'KeyBox Download']);">Download Latest</a>
+                   role="button" onclick="_gaq.push(['_trackEvent', 'Click', 'KeyBox Download']);">Download Latest</a>
             </p>
             <br/>
 
@@ -136,7 +136,7 @@
             <p>
                 <a class="btn btn-primary"
                    href="https://github.com/skavanagh/EC2Box/releases/download/v0.35.00/ec2box-jetty-v0.35_00.tar.gz"
-                   role="button" disabled="true" onclick="_gaq.push(['_trackEvent', 'Click', 'EC2Box Download']);">Download Latest</a>
+                   role="button" onclick="_gaq.push(['_trackEvent', 'Click', 'EC2Box Download']);">Download Latest</a>
             </p>
             <br/>
 
@@ -201,37 +201,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="assets/js/docs.min.js"></script>
-<script src="https://checkout.stripe.com/checkout.js"></script>
-
-<script type="text/javascript">
-    var handler = StripeCheckout.configure({
-        key: 'pk_live_cXCXhEn822oNphH5SawlGpXU',
-        image: 'http://sshkeybox.com/img/keybox_100x100.png',
-        locale: 'auto',
-        token: function (token) {
-            // You can access the token ID with `token.id`.
-            // Get the token ID to your server-side code for use.
-        },
-        closed: function () {
-            var btns = document.getElementsByClassName("btn-primary");
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].removeAttribute('disabled');
-            }
-        }
-    });
-
-    // Open Checkout with further options:
-    handler.open({
-        name: 'KeyBox',
-        description: 'Donate - 5 USD',
-        amount: 500
-    });
-
-    // Close Checkout on page navigation:
-    window.addEventListener('popstate', function () {
-        handler.close();
-    });
-</script>
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
