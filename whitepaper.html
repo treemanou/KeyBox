@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="KeyBox is an open-source web-based SSH console that centrally manages administrative access to systems. It acts as a bastion host for administrators with features that promote infrastructure security. Web-based administration is combined with management and distribution of user's public SSH keys. Key management and administration is based on profiles assigned to defined users."/>
+    <meta name="keywords"
+          content="ssh key management, Web-based, ssh, multi-terminal, terminal, bastion host, ssh-keygen, public keys, management, key management, open source"/>
+    <meta name="author" content="Sean Kavanagh">
+    <link rel="shortcut icon" href="img/keybox.ico">
+
+    <title>KeyBox - See More</title>
+
+    <style type="text/css">
+
+    @import url('https://themes.googleusercontent.com/fonts/css?kit=fpjTOVmNbO4Lz34iLyptLUXza5VhXqVC6o75Eld_V98');
+    .c21 ol {
+        margin: 0;
+        padding: 0
+    }
+    .c21 table td,
+    table th {
+        padding: 0
+    }
+    .c16 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c28 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 11pt;
+        font-family: "Calibri";
+        font-style: normal
+    }
+    .c2 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 10pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c9 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 8pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c18 {
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 8pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c6 {
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 10pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c15 {
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 12pt;
+        font-family: "Times New Roman";
+        font-style: normal
+    }
+    .c3 {
+        font-size: 8pt;
+        font-family: "Times New Roman";
+        color: #0563c1;
+        font-weight: 400;
+        text-decoration: underline
+    }
+    .c10 {
+        padding-top: 0pt;
+        padding-bottom: 8pt;
+        line-height: 1.05;
+        text-align: justify;
+        height: 11pt
+    }
+    .c0 {
+        padding-top: 0pt;
+        padding-bottom: 8pt;
+        line-height: 1.0;
+        text-align: left;
+        height: 11pt
+    }
+    .c8 {
+        padding-top: 0pt;
+        padding-bottom: 8pt;
+        line-height: 1.0;
+        text-align: center;
+        height: 11pt
+    }
+    .c7 {
+        background-color: #ffffff;
+        font-size: 8pt;
+        font-family: "Times New Roman";
+        font-weight: 400
+    }
+    .c23 {
+        color: #0563c1;
+        text-decoration: underline;
+        vertical-align: baseline;
+        font-style: normal
+    }
+    .c26 {
+        padding-top: 0pt;
+        padding-bottom: 8pt;
+        line-height: 1.0;
+        text-align: center
+    }
+    .c11 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.0;
+        text-align: left
+    }
+    .c13 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.0;
+        text-align: justify
+    }
+    .c1 {
+        padding-top: 0pt;
+        padding-bottom: 8pt;
+        line-height: 1.0;
+        text-align: left
+    }
+    .c4 {
+        font-size: 10pt;
+        font-family: "Times New Roman";
+        font-weight: 400
+    }
+    .c21 {
+        background-color: #ffffff;
+        max-width: 517pt;
+        padding: 36pt 41pt 36pt 54pt
+    }
+    .c19 {
+        font-size: 10pt;
+        font-family: "Times New Roman";
+        font-weight: 700
+    }
+    .c12 {
+        font-size: 8pt;
+        font-family: "Times New Roman";
+        font-weight: 400
+    }
+    .c5 {
+        color: inherit;
+        text-decoration: inherit
+    }
+    .c24 {
+        background-color: #ffffff;
+        color: #000000
+    }
+    .c25 {
+        width: 33%;
+        height: 1px
+    }
+    .c22 {
+        background-color: #ffffff;
+        color: #222222
+    }
+    .c20 {
+        margin-left: 36pt
+    }
+    .c27 {
+        color: #ff0000
+    }
+    .c17 {
+        height: 11pt
+    }
+    .c14 {
+        text-indent: 36pt
+    }
+    .c21 .title {
+        padding-top: 0pt;
+        color: #000000;
+        font-weight: 700;
+        font-size: 24pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.0;
+        text-align: center
+    }
+    .c21 .subtitle {
+        padding-top: 0pt;
+        color: #000000;
+        font-size: 12pt;
+        padding-bottom: 12pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        text-align: center
+    }
+    .c21 li {
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Calibri"
+    }
+    .c21 p {
+        margin: 0;
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Calibri"
+    }
+    .c21 h1 {
+        padding-top: 16pt;
+        color: #000000;
+        font-weight: 700;
+        font-size: 14pt;
+        padding-bottom: 2pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        text-align: justify
+    }
+    .c21 h2 {
+        padding-top: 6pt;
+        color: #000000;
+        font-weight: 700;
+        font-size: 14pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        text-align: justify
+    }
+    .c21 h3 {
+        padding-top: 6pt;
+        color: #000000;
+        font-size: 12pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        text-align: justify
+    }
+    .c21 h4 {
+        padding-top: 6pt;
+        color: #000000;
+        font-size: 12pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        font-style: italic;
+        text-align: justify
+    }
+    .c21 h5 {
+        padding-top: 6pt;
+        color: #000000;
+        font-weight: 700;
+        font-size: 11pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        text-align: justify
+    }
+    .c21 h6 {
+        padding-top: 6pt;
+        color: #000000;
+        font-weight: 700;
+        font-size: 11pt;
+        padding-bottom: 0pt;
+        font-family: "Calibri";
+        line-height: 1.05;
+        page-break-after: avoid;
+        font-style: italic;
+        text-align: justify
+    }
+
+    </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/libs/html5shiv.js"></script>
+    <script src="js/libs/respond.min.js"></script>
+    <![endif]-->
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" type="text/css" rel="stylesheet"/>
+    <link href="css/keybox.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        <div class="nav-img"><img src="img/keybox_40x40.png"/></div>
+                        &nbsp;&nbsp;<a href="index.html" style="color:inherit;text-decoration: inherit;">KeyBox</a>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="whitepaper.html">Whitepaper</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="latest-release.html">Download</a></li>
+                    </ul>
+                    <div class="navbar-collapse collapse navbar-right">
+                        <ul class="nav navbar-nav" style="vertical-align: middle">
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=watch"
+                                        height="30" width="60" frameborder="0" scrolling="0"
+                                        style="width:60px; height: 30px;" allowTransparency="true"></iframe>
+                            </li>
+
+
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=fork"
+                                        height="30" width="60" frameborder="0" scrolling="0"
+                                        style="width:60px; height: 30px;" allowTransparency="true"></iframe>
+                            </li>
+
+
+                            <li>
+                                <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&type=follow" height="30"
+                                        width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;"
+                                        allowTransparency="true"></iframe>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+
+<div class="container marketing">
+
+
+    <div class="row">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- KeyBox -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9129349117934340"
+             data-ad-slot="9673832716"
+             data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+
+        </script>
+    </div>
+
+
+    <hr class="featurette-divider">
+    <div class="row featurette">
+
+        <!-- /.col-lg-12 -->
+        <div class="col-lg-12">
+
+            <div class="pre-scrollable" style="height:900px">
+                <div class="c21"><p class="c10"><span class="c28"></span></p></div>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c26"><span class="c15">IMPLEMENTING A TRUSTED THIRD-PARTY SYSTEM FOR SECURE SHELL</span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c8"><span class="c16"></span></p>
+                <p class="c26"><span class="c16">Sean Kavanagh</span></p>
+                <p class="c26"><span class="c16">April 2017</span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c1"><span class="c6">ABSTRACT</span></p>
+                <p class="c1"><span
+                        class="c2">From a 2003 paper titled &quot;Security Implications of SSH&quot; William Pfeifer wrote:</span>
+                </p>
+                <p class="c1"><span class="c4">&nbsp;&quot;There has been significant discussion on the whys and wherefores of the installation of SSH, the benefits of SSH over earlier protocols, and even how to set up tunneling to secure communication for other protocols via SSH. I have thus far seen little discussion on the potential security exposure offered by SSH and how to mitigate that exposure.&quot; </span><sup
+                        class="c4"><a href="#ftnt1" id="ftnt_ref1">[1]</a></sup></p>
+                <p class="c1"><span class="c2">At the time this was written, it was important for enterprises to not disregard the exposure a new technology introduced, even when that same technology improved upon the security of the status quo. Fourteen years later, Secure Shell (SSH) is the status quo. It&#39;s important today to not become complacent and to continue to investigate improvements in mitigating these known and sometimes permitted risks.</span>
+                </p>
+                <p class="c1"><span class="c2">Although SSH is an improvement over previous protocols regarding encryption and integrity, it introduces exposures and makes administrative transparency more difficult. Accountability, non-repudiation, and data integrity are important elements that comprise a sound enterprise security model. These elements constitute a highly-flawed arrangement when dealing with remote administration. Data that can be audited and non-repudiated when transmitted over the network is at risk of being intercepted or compromised, while data that is integral and secured end-to-end is difficult to audit and can potentially be repudiated. This dilemma makes it a challenge to strike a balance between accountability and routine protections for secure communications. This paper will examine the risks associated with SSH and introduce concepts to mitigate them while facilitating workable administrative transparency through the development of a trusted third-party system. </span>
+                </p>
+                <p class="c1"><span class="c2">The trusted third-party system will act as an intercepting proxy for SSH so that communication can be monitored and retained while still ensuring ample protection. Also, the system will add an additional layer of protection when combined with traditional secure network architectures.</span>
+                </p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c6">HISTORY OF SSH</span></p>
+                <p class="c1"><span class="c4">SSH was developed in 1995 by </span><span
+                        class="c4 c24">Tatu&nbsp;Yl&ouml;nen </span><span class="c4">a research student from Helsinki, Finland after his university became the victim of a credential-sniffing attack. &nbsp;He publicly released SSH-1 as freeware and it was quickly embraced at places like UC Berkley. &nbsp;Five years after SSH-1 was released its adoption grew to an estimated 2 million users worldwide. &nbsp;SSH became the standard way to remotely administer UNIX-based operating systems and </span><span
+                        class="c4 c24">Tatu&nbsp;Yl&ouml;nen </span><span class="c4">went on to found SSH Communications Security, a company that maintains a commercial version of SSH. He also was the main author of NIST IR 7966, which is the US Federal Government guidelines around SSH key management.</span><sup
+                        class="c4"><a href="#ftnt2" id="ftnt_ref2">[2]</a></sup><span class="c4">&nbsp;</span><sup
+                        class="c4"><a
+                        href="#ftnt3" id="ftnt_ref3">[3]</a></sup></p>
+                <p class="c1"><span class="c4">Today UNIX-based operating systems comprise &nbsp;66.6% of the web servers on the internet and SSH is the prevalent means of their administration.</span><sup
+                        class="c4"><a href="#ftnt4" id="ftnt_ref4">[4]</a></sup><span class="c4">&nbsp; SSH may see more adoption in the future, as Microsoft announced bringing an SSH server to Windows.</span><sup
+                        class="c4"><a href="#ftnt5" id="ftnt_ref5">[5]</a></sup></p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c1"><span class="c6">THE TRUSTED THIRD-PARTY SYSTEM </span></p>
+                <p class="c1"><span class="c2">The trusted third-party system (TTP) is a web-enabled application that acts as an intermediary between administrative clients and the systems they access using SSH. The client sessions are proxied using a secure websocket connection over Transport Layer Security (TLS). The SSH connections themselves are established server-side to the protected servers. Since TLS can be decrypted at the application level, all communications can be secured and audited. &nbsp;Also, the application will control access to the systems themselves, ensure revocation of administrators, and centralize authentication. Figure 1 depicts an architecture in which the trusted third-party system is used as a proxy into systems hosted in a perimeter network. As a matter of convention, the author will refer to the trusted third-party system simply as &ldquo;the control system.&rdquo; &nbsp;</span>
+                </p>
+                <p class="c1"><span class="c4">Disclosure: The control system is based on work the author has implemented in an open source project named KeyBox.</span><sup
+                        class="c4"><a href="#ftnt6" id="ftnt_ref6">[6]</a></sup><span class="c2">&nbsp; The noted project is a starting point for such a system and is not complete with the features as described in this paper. &nbsp;</span>
+                </p>
+                <p class="c1"><span
+                        style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 335.50px; height: 383.13px;"><img
+                        alt="" src="img/whitepaper_dia.jpg"
+                        style="width: 335.50px; height: 383.13px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                        title=""></span></p>
+                <p class="c1"><span class="c18">Figure 1 - Control System Architecture</span></p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c6">PROTECTING SYSTEMS IN A PERIMETER NETWORK</span></p>
+                <p class="c1"><span class="c2">Features of SSH can expose critical systems outside of protected network segments. Port forwarding through an SSH tunnel can allow for an administrative user to expose protected communication ports. Even the services listening on ports local to the system are at risk.</span>
+                </p>
+                <p class="c1"><span class="c2">For example, if a Server Message Block (SMB) network share is protected so only systems in a perimeter network can access it, SSH can be used to bypass the protection through port forwarding.</span>
+                </p>
+                <p class="c1 c14"><span class="c4">ssh -L 445:[dmz-smb]:445 user@[dmz-server] </span><sup class="c4"><a
+                        href="#ftnt7"
+                        id="ftnt_ref7">[7]</a></sup>
+                </p>
+                <p class="c1"><span class="c2">If the SSH session above is initiated outside the perimeter network, then SMB is also exposed to unauthorized systems outside the network segment.</span>
+                </p>
+                <p class="c1"><span class="c2">Well protected networks segments are setup as Secure Enclaves and physically disable direct SSH access. Administration is done by first having the client establish a Virtual Private Network (VPN) connection to a server with means inside the enclave. &nbsp;This adds a layer of protection to systems hosted in the enclave so they cannot be exposed by SSH or other means. However, it does not address any auditing requirements. The control system could be added as an additional layer of protection to the secure enclave and addresses these auditing requirements. &nbsp;An Intrusion Detection System (IDS) could also be added to analyze all traffic passing through to the control system.</span>
+                </p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c6">PROTECTING DATA IN A PERIMETER NETWORK</span></p>
+                <p class="c1"><span class="c2">While SSH can prevent data from being intercepted by third-parties, there is a lack of indication when first-parties mishandle data. For example, a rogue user can very easily create a snapshot of a database and transfer the snapshot to an unsecured location through secure copy (SCP) or SSH file transfer (SFTP) protocols. </span>
+                </p>
+                <p class="c1"><span class="c2">Also, the database itself can be exposed to clients outside a perimeter network through port forwarding.</span>
+                </p>
+                <p class="c1 c14"><span class="c4">ssh -L 1521:[dmz-db]:1521 user@[dmz-server] </span><sup class="c4"><a
+                        href="#ftnt8"
+                        id="ftnt_ref8">[8]</a></sup>
+                </p>
+                <p class="c1"><span class="c2">If all administrative traffic is forced through the control system, databases cannot be exposed through port forwarding and data cannot be copied to unsecured locations using SSH without the control system allowing it.</span>
+                </p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c6">AUTHENTICATION</span></p>
+                <p class="c1"><span class="c4">The strongest type of authentication uses multiple factors. Public-key infrastructure (PKI) based x509 authentication involves a certificate authority (CA) to validate the user&rsquo;s public key. The corresponding private keys can be issued to smart cards or hardware tokens offering an additional factor of authentication. Some SSH implementations do not support x509 based authentication outright.</span><sup
+                        class="c4"><a href="#ftnt9" id="ftnt_ref9">[9]</a></sup><span class="c2">&nbsp; Even when x509 is supported, this authentication must be configured at the system level, which means the system can be configured to still allow authentication by weaker means. &nbsp;These weaker authentication methods can include plain passwords, SSH keys, or even backdoors into the system.</span>
+                </p>
+                <p class="c1"><span class="c4">The value in obtaining SSH keys has gained the attention of malicious hackers and even nation states. &nbsp;In 2014, a malware known as &ldquo;The Mask&rdquo; included the collection and exposure of private SSH keys. &nbsp;This malware was in operation for at least 7 years before it was discovered and is largely presumed to be the work of a nation state.</span><sup
+                        class="c4"><a href="#ftnt10" id="ftnt_ref10">[10]</a></sup><span class="c4">&nbsp; Also, in an attack that was believed to be sponsored by North Korea on Sony Pictures, private SSH keys were included in the list of comprised files.</span><sup
+                        class="c4"><a href="#ftnt11" id="ftnt_ref11">[11]</a></sup></p>
+                <p class="c1"><span class="c2">The control system would be a centralized way for administrative users to authenticate. Ideally this system would be outside of the administrator&rsquo;s control. &nbsp;Authentication could easily be integrated with directory servers or include multi-factor authentication such as public-key infrastructure (PKI) with smart cards. &nbsp;Most importantly this authentication ensures that all private keys used for system access are secure. &nbsp;This centralized authentication is enforced when layering the control system behind a perimeter network that physically disables SSH. Administrative sessions can always be tied back to the actual users through the control system, even when using shared accounts on the target systems themselves. Additionally, intrusion detection is made simpler, since things like failed login attempts can be monitored at a single location.</span>
+                </p>
+                <p class="c0"><span class="c6"></span></p>
+                <p class="c1"><span class="c6">PRIVILEGE ESCALATION</span></p>
+                <p class="c1"><span class="c4">Since it&#39;s difficult to monitor SSH sessions, there is an increased risk of privilege escalation</span><span
+                        class="c4 c27">&nbsp;</span><span class="c2">on the systems themselves. Once a user obtains the necessary privileges, they have full control of the system and can typically hide any trace of their activity. &nbsp;While privilege escalation is not a direct result of exploiting SSH itself, SSH acts as a cover for these activities and should highlight the importance of monitoring remote administration.</span>
+                </p>
+                <p class="c1"><span class="c2">Any program or script that is run as the privileged user and also writable to a non-privileged user is at risk of privilege escalation. Commands can be overridden and used as back doors for malicious users to gain access to privileged accounts. </span>
+                </p>
+                <p class="c1"><span class="c2">For example, the following could be inserted into a script that is run by the privileged user.</span>
+                </p>
+                <p class="c11 c14"><span class="c2">if [ $EUID -e 0 ]; &nbsp;then </span></p>
+                <p class="c11 c14 c20"><span class="c2">cat /tmp/Sd5ad34sE/master_key.pub &gt;&gt; /root/.ssh/authorized_keys; </span>
+                </p>
+                <p class="c11 c14"><span class="c2">done;</span></p>
+                <p class="c11 c17 c14"><span class="c2"></span></p>
+                <p class="c1"><span class="c4">This snippet checks to see if the script is currently executed as the root user and adds a public SSH key to gain access as that user. This can also be done with programs executed from a scheduled </span><span
+                        class="c4 c22">job running as the privileged user.</span></p>
+                <p class="c1"><span class="c2">Not only are permissions to executables vulnerable, but paths are as well. Any directory on the privileged user&#39;s path that is writable to other users could possibly contain executables that override other commands and escalate privileges.</span>
+                </p>
+                <p class="c1"><span class="c4">Programs used to limit privileged access can also be used to obtain privileged access, as in the case with sudo (superuser do). &nbsp;The sudo utility allows commands and programs to be executed with permissions of a more privileged user. &nbsp;These privileges are typically maintained in a configure file (/etc/sudoers) on the system itself. While sudo has some security benefits by encouraging users to limit privileged access, it tends to be difficult when enforcing only the essential privileges the user requires. &nbsp;Furthermore, it moves the assignment of privileges outside of the enterprise&rsquo;s purview. This lack of central control means that there must be complete trust with the </span><span
+                        class="c4 c22">user administrating the system or systems to maintain proper configuration.</span>
+                </p>
+                <p class="c1"><span class="c4 c22">Lastly, programs that seem harmless can be used as backdoors into the privileged user&#39;s shell</span><span
+                        class="c2">&nbsp;using sudo.</span></p>
+                <p class="c11"><span
+                        class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo find &lt;filename&gt; -exec bash \;</span>
+                </p>
+                <p class="c11"><span class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo vim [ESC KEY], [TYPE] :!bash</span>
+                </p>
+                <p class="c11"><span
+                        class="c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo less &lt;filename&gt;, [TYPE] !bash</span>
+                </p>
+                <p class="c11 c17"><span class="c2"></span></p>
+                <p class="c1"><span class="c2">This makes enforcement of privileges cumbersome. Not only does one have to ensure that only the necessary programs are set for a user, they also have to ensure those programs do not allow for privileged access to other shells or programs. &nbsp;</span>
+                </p>
+                <p class="c1"><span
+                        class="c4">These examples are just a few trivial ways that privileged access can be obtained. </span><span
+                        class="c4 c22">Once privileged access is obtained</span><span class="c2">, the user can manipulate footprints or history retained on the system. Again, this isn&rsquo;t a direct result of SSH, but should empathize the importance of setting up a control system to monitor these activities.</span>
+                </p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c6">AUDITING</span></p>
+                <p class="c1"><span class="c2">Since SSH is encrypted end-to-end from the client to the server, centralized auditing becomes difficult. Typically audit logs, audit settings, and privileges to those logs and settings are maintained on the systems themselves. Audit logs tend to lack details, are at risk of being incomplete, and are susceptible to manipulation. Also, audit logs will not have a complete picture of what has been done across the enterprise. For example, if an enterprise wanted to look into the failed login attempts during a set period of time across all the systems, they would have to pull the /var/log/auth.log on every system to compile a list.</span>
+                </p>
+                <p class="c1"><span class="c2">Since the control system acts as an intermediary for SSH, it could centrally collect and retain what is being done on all systems. Data from an administrative session can be reviewed at will. Sessions that touch on known files or commands that are susceptible to manipulation could be flagged for review. &nbsp;For example, editing /etc/password, /etc/group, or adding a public key to authorized keys could trigger a review of the session. A future enhancement could use the culmination of all data to establish a normal pattern of administration for the enterprise. &nbsp;As the control system collects auditing data it could flag administrative sessions for additional review if that session falls outside of the established pattern norms.</span>
+                </p>
+                <p class="c0"><span class="c2"></span></p>
+                <p class="c1"><span class="c19">SUMMARY</span></p>
+                <p class="c1"><span class="c4">There is little systematic protection when dealing with SSH and most likely any defense that enhances transparency would have to be carried out procedurally. An example of such, is the &quot;two-person rule&quot;, which was implemented at the National Security Agency (NSA) to prevent privilege escalation allowing for unauthorized access to classified information.</span><sup
+                        class="c4"><a href="#ftnt12" id="ftnt_ref12">[12]</a></sup><span class="c2">&nbsp; It must be recognized as a limitation when systems can only be secured procedurally and this limitation must be recognized with systems administered through SSH. Implementing a trusted-third party system that layers TLS on top of SSH allows for immediate systematic protection and new capabilities around administrative auditing which provides much needed transparency.</span>
+                </p>
+                <p class="c0"><span class="c4 c23"></span></p>
+                <hr class="c25">
+                <div><p class="c11"><a href="#ftnt_ref1" id="ftnt1">[1]</a><span class="c12">&nbsp;Pfeifer, William (April 2003). &ldquo;Security Implications of SSH&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=http://www.sans.org/reading-room/whitepapers/vpns/security-implications-ssh-1180&amp;sa=D&amp;ust=1507988833350000&amp;usg=AFQjCNFceqS3T3aOz3x8sk4WxLWaExCrBg">http://www.sans.org/reading-room/whitepapers/vpns/security-implications-ssh-1180</a></span>
+                </p></div>
+                <div><p class="c13"><a href="#ftnt_ref2" id="ftnt2">[2]</a><span class="c12">&nbsp;</span><span
+                        class="c7">Yl&ouml;nen, Tatu. &ldquo;Tatu Yl&ouml;nen, Inventor of SSH&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://www.ssh.com/people/tatu-ylonen&amp;sa=D&amp;ust=1507988833351000&amp;usg=AFQjCNE5VlmHxWTDv8Ogwo5CotuRfN5M4g">https://www.ssh.com/people/tatu-ylonen</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref3" id="ftnt3">[3]</a><span class="c12">&nbsp;</span><span
+                        class="c7">Barrett, Daniel J. &amp; Silverman</span><span
+                        class="c12">, </span><span class="c7">Richard E. </span><span class="c12">(February 2001). &ldquo;SSH: Secure Shell &ndash; The Definitive Guide&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch01_05.htm&amp;sa=D&amp;ust=1507988833352000&amp;usg=AFQjCNE59JYEDe5wRy_9WdEy7EUoHI8x9Q">http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch01_05.htm</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref4" id="ftnt4">[4]</a><span class="c12">&nbsp;W3Techs Web Technology Surveys (April 2017). &ldquo;Usage of operating for websites&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://w3techs.com/technologies/overview/operating_system/all&amp;sa=D&amp;ust=1507988833353000&amp;usg=AFQjCNFURGaQoAwuPEEpnzKZ-PA8uyp-Hg">https://w3techs.com/technologies/overview/operating_system/all</a></span><span
+                        class="c9">&nbsp;</span></p></div>
+                <div><p class="c11"><a href="#ftnt_ref5" id="ftnt5">[5]</a><span class="c12">&nbsp;Bright, Peter (June 2, 2015). &quot;Microsoft bringing SSH to Windows and PowerShell&quot; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://arstechnica.com/information-technology/2015/06/microsoft-bringing-ssh-to-windows-and-powershell&amp;sa=D&amp;ust=1507988833353000&amp;usg=AFQjCNEbrRcPEAoJGEzZMI24UH1gv-rUdQ">https://arstechnica.com/information-technology/2015/06/microsoft-bringing-ssh-to-windows-and-powershell</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref6" id="ftnt6">[6]</a><span class="c12">&nbsp;Kavanagh, Sean (2017). &ldquo;KeyBox: Web-Based SSH Access and Key Management&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://github.com/skavanagh/KeyBox&amp;sa=D&amp;ust=1507988833354000&amp;usg=AFQjCNHWOpyf4ujYwQgvdA3qrAL2u8dRqQ">https://github.com/skavanagh/KeyBox</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref7" id="ftnt7">[7]</a><span class="c12">&nbsp; Kondratenko, Artem (March 2017). &ldquo;A Red Teamer&#39;s guide to pivoting&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://artkond.com/2017/03/23/pivoting-guide&amp;sa=D&amp;ust=1507988833354000&amp;usg=AFQjCNHv5Y4zqVwbFGdGHaN5SvVYrHpwXQ">https://artkond.com/2017/03/23/pivoting-guide</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref8" id="ftnt8">[8]</a><span class="c12">&nbsp;Deng, Zemian (November 2014). &ldquo;How to use SSH tunneling to get to your restricted servers&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://www.javacodegeeks.com/2014/11/how-to-use-ssh-tunneling-to-get-to-your-restricted-servers.html&amp;sa=D&amp;ust=1507988833355000&amp;usg=AFQjCNHQI4EI9wULjRQKsnAx7-4ZWPhW2Q">https://www.javacodegeeks.com/2014/11/how-to-use-ssh-tunneling-to-get-to-your-restricted-servers.html</a></span>
+                </p></div>
+                <div><p class="c13"><a href="#ftnt_ref9" id="ftnt9">[9]</a><span class="c12">&nbsp;Morgan, Iain (June 2010). Public mailing list - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=http://lists.mindrot.org/pipermail/openssh-unix-dev/2010-June/028702.html&amp;sa=D&amp;ust=1507988833356000&amp;usg=AFQjCNFXBruoEFEbx0ehO6hnUMY6zHWKbQ">http://lists.mindrot.org/pipermail/openssh-unix-dev/2010-June/028702.html</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref10" id="ftnt10">[10]</a><span class="c12">&nbsp;Kaspersky Lab (February 2014). &ldquo;Unveiling Careto &ndash; The Masked APT&rdquo; </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=http://kasperskycontenthub.com/wp-content/uploads/sites/43/vlpdfs/unveilingthemask_v1.0.pdf&amp;sa=D&amp;ust=1507988833356000&amp;usg=AFQjCNGi2HyR0Hq1FzJJFH7AOJRp7PnEuQ">http://kasperskycontenthub.com/wp-content/uploads/sites/43/vlpdfs/unveilingthemask_v1.0.pdf</a></span>
+                </p></div>
+                <div><p class="c11"><a href="#ftnt_ref11" id="ftnt11">[11]</a><span
+                        class="c12">&nbsp;/r/Hacking (2015). Reddit - </span><span class="c3"><a class="c5"
+                                                                                                 href="https://www.google.com/url?q=https://www.reddit.com/r/hacking/comments/2n9zhv/i_used_to_work_for_sony_pictures_my_friend_still&amp;sa=D&amp;ust=1507988833357000&amp;usg=AFQjCNGkaTmXUFJmjxqzAKkn5kATvrYQCw">https://www.reddit.com/r/hacking/comments/2n9zhv/i_used_to_work_for_sony_pictures_my_friend_still</a></span><span
+                        class="c9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p></div>
+                <div><p class="c11"><a href="#ftnt_ref12" id="ftnt12">[12]</a><span class="c12">&nbsp;Greenberg, Andy (June 2013). &ldquo;NSA Implementing &#39;Two-Person&#39; Rule To Stop The Next Edward Snowden&rdquo; - </span><span
+                        class="c3"><a class="c5"
+                                      href="https://www.google.com/url?q=https://www.forbes.com/sites/andygreenberg/2013/06/18/nsa-director-says-agency-implementing-two-person-rule-to-stop-the-next-edward-snowden&amp;sa=D&amp;ust=1507988833358000&amp;usg=AFQjCNHeXdjIyotGoHsr0yu_Ov26z9cWuA">https://www.forbes.com/sites/andygreenberg/2013/06/18/nsa-director-says-agency-implementing-two-person-rule-to-stop-the-next-edward-snowden</a></span>
+                </p></div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- /END THE FEATURETTES -->
+
+
+    <hr class="featurette-divider">
+
+    <!-- FOOTER -->
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=watch&count=true"
+                            height="30" width="100" frameborder="0" scrolling="0" style="width:100px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&repo=KeyBox&type=fork&count=true"
+                            height="30" width="100" frameborder="0" scrolling="0" style="width:100px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+                <td>
+                    <iframe src="http://ghbtns.com/github-btn.html?user=skavanagh&type=follow&count=true"
+                            height="30" width="168" frameborder="0" scrolling="0" style="width:168px; height: 30px;"
+                            allowTransparency="true"></iframe>
+                </td>
+            </tr>
+        </table>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+
+        <p>&copy; 2017 Loophole, LLC</p>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="assets/js/docs.min.js"></script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38369800-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+
+</script>
+</body>
+</html>

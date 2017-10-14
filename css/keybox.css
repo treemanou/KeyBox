@@ -53,3 +53,7 @@
     padding:5px;
     list-style: none;
 }
+.pre-scrollable {
+    max-height: 600px;
+    overflow-y: scroll;
+}
