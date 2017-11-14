@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>http://sshkeybox.com/</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://sshkeybox.com/index.html</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://sshkeybox.com/about.html</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://sshkeybox.com/features.html</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 <url>
-  <loc>http://sshkeybox.com/see-more.html</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <loc>http://sshkeybox.com/whitepaper.html</loc>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>http://sshkeybox.com/latest-release.html</loc>
-  <lastmod>2017-06-06T00:47:38+00:00</lastmod>
+  <lastmod>2017-11-13T12:09:21+00:00</lastmod>
   <changefreq>monthly</changefreq>
 </url>
 </urlset>
