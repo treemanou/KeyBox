@@ -49,7 +49,7 @@ public class PrivateKeyDB {
             con = DBUtils.getConn();
 
             PreparedStatement stmt = con.prepareStatement("select * from  application_key");
-
+            log.debug("getApplicationKey:"+stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

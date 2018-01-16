@@ -37,6 +37,9 @@ public class DSPool {
     private static final int MIN_IDLE = Integer.parseInt(AppConfig.getProperty("minIdle"));
     private static final int MAX_WAIT = Integer.parseInt(AppConfig.getProperty("maxWait"));
 
+  
+   
+    
     private DSPool() {
     }
 
@@ -86,6 +89,12 @@ public class DSPool {
         dataSource.setPassword(password);
         dataSource.setUrl(connectionURL);
 
+        log.debug("BASE_DIR:"+BASE_DIR);
+        log.debug("DB_DRIVER:"+DB_DRIVER);
+        log.debug("connectionURL:"+connectionURL);
+        log.debug("user:"+user);
+        log.debug("password:"+password);
+        log.debug("connectionURL:"+connectionURL);
         return dataSource;
 
     }

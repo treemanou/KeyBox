@@ -53,6 +53,7 @@ public class UserProfileDB {
             con = DBUtils.getConn();
             stmt = con.prepareStatement("delete from user_map where profile_id=?");
             stmt.setLong(1, profileId);
+            log.debug("deleteUserMapWithProfileId: "+stmt);
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -60,6 +61,7 @@ public class UserProfileDB {
                 stmt = con.prepareStatement("insert into user_map (profile_id, user_id) values (?,?)");
                 stmt.setLong(1, profileId);
                 stmt.setLong(2, userId);
+                log.debug("insertUserMap: "+stmt);
                 stmt.execute();
                 DBUtils.closeStmt(stmt);
             }
@@ -112,6 +114,7 @@ public class UserProfileDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from  profiles g, user_map m where g.id=m.profile_id and m.user_id=? order by nm asc");
             stmt.setLong(1, userId);
+            log.debug("getProfilesByUser: "+stmt);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -148,7 +151,7 @@ public class UserProfileDB {
             PreparedStatement stmt = con.prepareStatement("select * from user_map where profile_id=? and user_id=?");
             stmt.setLong(1, profileId);
             stmt.setLong(2, userId);
-
+            log.debug("checkIsUsersProfile_getUserMap: "+stmt);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -187,6 +190,7 @@ public class UserProfileDB {
                     Long profileId = null;
                     stmt = con.prepareStatement("select id from  profiles p where lower(p.nm) like ?");
                     stmt.setString(1, profileNm.toLowerCase());
+                    log.debug("assignProfilesToUser_SelectProfiles: "+stmt);
                     ResultSet rs = stmt.executeQuery();
                     while (rs.next()) {
                         profileId = rs.getLong("id");
@@ -197,6 +201,7 @@ public class UserProfileDB {
                     if (profileId != null) {
                         stmt = con.prepareStatement("delete from user_map where profile_id=?");
                         stmt.setLong(1, profileId);
+                        log.debug("assignProfilesToUser_DeleteUserMapWithProfileId: "+stmt);
                         stmt.execute();
                         DBUtils.closeStmt(stmt);
 
@@ -204,6 +209,7 @@ public class UserProfileDB {
                             stmt = con.prepareStatement("insert into user_map (profile_id, user_id) values (?,?)");
                             stmt.setLong(1, profileId);
                             stmt.setLong(2, userId);
+                            log.debug("assignProfilesToUser_InserteUserMap: "+stmt);
                             stmt.execute();
                             DBUtils.closeStmt(stmt);
                         }

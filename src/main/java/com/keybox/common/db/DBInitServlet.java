@@ -42,9 +42,10 @@ import org.slf4j.LoggerFactory;
  * Initial startup task.  Creates an SQLite DB and generates
  * the system public/private key pair if none exists
  */
+/*
 @WebServlet(name = "DBInitServlet",
 		urlPatterns = {"/config"},
-		loadOnStartup = 1)
+		loadOnStartup = 1)	*/	
 public class DBInitServlet extends javax.servlet.http.HttpServlet {
 
 	private static Logger log = LoggerFactory.getLogger(DBInitServlet.class);

@@ -40,6 +40,7 @@ public class DBUtils {
     public static Connection getConn() {
         Connection con = null;
         try{
+        	
             con=DSPool.getDataSource().getConnection();
 
         } catch (Exception ex) {

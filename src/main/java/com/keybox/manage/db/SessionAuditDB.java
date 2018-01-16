@@ -64,6 +64,7 @@ public class SessionAuditDB {
 
             //delete logs with no terminal entries
             PreparedStatement stmt = con.prepareStatement("delete from session_log where id not in (select session_id from terminal_log)");
+            log.debug("deleteAuditHistory:" + stmt.toString());
             stmt.execute();
 
 
@@ -75,6 +76,7 @@ public class SessionAuditDB {
 
             stmt = con.prepareStatement("delete from session_log where session_tm < ?");
             stmt.setDate(1, date);
+            log.debug("deleteAuditHistory:" + stmt.toString());
             stmt.execute();
 
             DBUtils.closeStmt(stmt);
@@ -122,7 +124,7 @@ public class SessionAuditDB {
             if(StringUtils.isNotEmpty(sortedSet.getFilterMap().get(FILTER_BY_SYSTEM))){
                 stmt.setString(i, sortedSet.getFilterMap().get(FILTER_BY_SYSTEM));
             }
-
+            log.debug("getSessions:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 SessionAudit sessionAudit = new SessionAudit();
@@ -193,6 +195,8 @@ public class SessionAuditDB {
             stmt.setString(2, user.getLastNm());
             stmt.setString(3, user.getUsername());
             stmt.setString(4, user.getIpAddress());
+            
+            log.debug("createSessionLog:" + stmt.toString());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs != null && rs.next()) {
@@ -251,6 +255,7 @@ public class SessionAuditDB {
                 stmt.setString(5, sessionOutput.getHost());
                 stmt.setInt(6, sessionOutput.getPort());
                 stmt.setString(7, sessionOutput.getOutput().toString());
+                log.debug("insertTerminalLog:" + stmt.toString());
                 stmt.execute();
                 DBUtils.closeStmt(stmt);
             }
@@ -302,6 +307,7 @@ public class SessionAuditDB {
             PreparedStatement stmt = con.prepareStatement("select * from terminal_log where instance_id=? and session_id=? order by log_tm asc");
             stmt.setLong(1, instanceId);
             stmt.setLong(2, sessionId);
+            log.debug("getTerminalLogsForSession:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             StringBuilder outputBuilder = new StringBuilder("");
             while (rs.next()) {
@@ -348,6 +354,7 @@ public class SessionAuditDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select distinct instance_id, display_nm, user, host, port from terminal_log where session_id=?");
             stmt.setLong(1, sessionId);
+            log.debug("getHostSystemsForSession:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 HostSystem hostSystem = new HostSystem();
@@ -387,7 +394,8 @@ public class SessionAuditDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, sessionId);
-
+            
+            log.debug("getSessionsTerminals:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 sessionAudit.setId(rs.getLong("session_log.id"));

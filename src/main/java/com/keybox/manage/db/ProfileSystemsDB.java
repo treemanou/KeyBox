@@ -61,6 +61,7 @@ public class ProfileSystemsDB {
 				stmt = con.prepareStatement("insert into system_map (profile_id, system_id) values (?,?)");
 				stmt.setLong(1, profileId);
 				stmt.setLong(2, systemId);
+				 log.debug("setSystemsForProfile:"+stmt.toString());
 				stmt.execute();
 				DBUtils.closeStmt(stmt);
 			}
@@ -88,6 +89,7 @@ public class ProfileSystemsDB {
 		try {
 			PreparedStatement stmt = con.prepareStatement("select * from  system s, system_map m where s.id=m.system_id and m.profile_id=? order by display_nm asc");
 			stmt.setLong(1, profileId);
+			log.debug("getSystemsByProfile:"+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -151,6 +153,7 @@ public class ProfileSystemsDB {
 		try {
 			PreparedStatement stmt = con.prepareStatement("select * from  system s, system_map m where s.id=m.system_id and m.profile_id=? order by display_nm asc");
 			stmt.setLong(1, profileId);
+			log.debug("getSystemIdsByProfile(Connection con, Long profileId):"+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

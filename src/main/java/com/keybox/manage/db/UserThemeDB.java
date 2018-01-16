@@ -50,6 +50,7 @@ public class UserThemeDB {
 
             PreparedStatement stmt = con.prepareStatement("select * from user_theme where user_id=?");
             stmt.setLong(1, userId);
+            log.debug("getTheme: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
                 theme= new UserSettings();
@@ -104,6 +105,7 @@ public class UserThemeDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("delete from user_theme where user_id=?");
             stmt.setLong(1, userId);
+            log.debug("delete Theme: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -124,6 +126,7 @@ public class UserThemeDB {
                         stmt.setString(i + 4, null);
                     }
                 }
+                log.debug("insert Theme: "+stmt.toString());
                 stmt.execute();
                 DBUtils.closeStmt(stmt);
             }

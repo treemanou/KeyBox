@@ -93,6 +93,7 @@ public class SystemStatusDB {
 
             PreparedStatement stmt = con.prepareStatement("delete from status where user_id=?");
             stmt.setLong(1,userId);
+            log.debug("deleteAllSystemStatus:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -118,6 +119,7 @@ public class SystemStatusDB {
             stmt.setLong(1, hostSystem.getId());
             stmt.setString(2, hostSystem.getStatusCd());
             stmt.setLong(3, userId);
+            log.debug("insertSystemStatus:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -167,6 +169,7 @@ public class SystemStatusDB {
             stmt.setString(1, hostSystem.getStatusCd());
             stmt.setLong(2, hostSystem.getId());
             stmt.setLong(3, userId);
+            log.debug("updateSystemStatus:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -225,6 +228,7 @@ public class SystemStatusDB {
 
             PreparedStatement stmt = con.prepareStatement("select * from status where user_id=? order by id asc");
             stmt.setLong(1, userId);
+            log.debug("getAllSystemStatus:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -259,6 +263,7 @@ public class SystemStatusDB {
             PreparedStatement stmt = con.prepareStatement("select * from status where id=? and user_id=?");
             stmt.setLong(1, systemId);
             stmt.setLong(2, userId);
+            log.debug("getSystemStatus:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -297,6 +302,7 @@ public class SystemStatusDB {
             stmt.setString(2,HostSystem.AUTH_FAIL_STATUS);
             stmt.setString(3,HostSystem.PUBLIC_KEY_FAIL_STATUS);
             stmt.setLong(4, userId);
+            log.debug("getNextPendingSystem:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {

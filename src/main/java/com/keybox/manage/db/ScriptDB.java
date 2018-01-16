@@ -63,6 +63,7 @@ public class ScriptDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, userId);
+            log.debug("getScriptSet:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -128,6 +129,7 @@ public class ScriptDB {
             PreparedStatement stmt = con.prepareStatement("select * from  scripts where id=? and user_id=?");
             stmt.setLong(1, scriptId);
             stmt.setLong(2, userId);
+            log.debug("getScript:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -161,6 +163,7 @@ public class ScriptDB {
             stmt.setString(1, script.getDisplayNm());
             stmt.setString(2, script.getScript());
             stmt.setLong(3, userId);
+            log.debug("insertScript:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -188,6 +191,8 @@ public class ScriptDB {
             stmt.setString(2, script.getScript());
             stmt.setLong(3, script.getId());
             stmt.setLong(4, userId);
+            log.debug("updateScript:" + stmt.toString());
+            stmt.execute();
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -212,6 +217,7 @@ public class ScriptDB {
             PreparedStatement stmt = con.prepareStatement("delete from scripts where id=? and user_id=?");
             stmt.setLong(1, scriptId);
             stmt.setLong(2, userId);
+            log.debug("deleteScript:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 

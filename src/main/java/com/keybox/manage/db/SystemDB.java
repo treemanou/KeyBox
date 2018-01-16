@@ -80,7 +80,8 @@ public class SystemDB {
 			if (StringUtils.isNotEmpty(sortedSet.getFilterMap().get(FILTER_BY_PROFILE_ID))) {
 				stmt.setLong(2, Long.parseLong(sortedSet.getFilterMap().get(FILTER_BY_PROFILE_ID)));
 			}
-
+			
+			log.debug("getUserSystemSet_1: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -131,6 +132,7 @@ public class SystemDB {
 			con = DBUtils.getConn();
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setLong(1, profileId);
+			log.debug("getUserSystemSet_2: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -188,6 +190,7 @@ public class SystemDB {
 			if (StringUtils.isNotEmpty(sortedSet.getFilterMap().get(FILTER_BY_PROFILE_ID))) {
 				stmt.setLong(1, Long.parseLong(sortedSet.getFilterMap().get(FILTER_BY_PROFILE_ID)));
 			}
+			log.debug("getUserSystemSet_3: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -307,6 +310,7 @@ public class SystemDB {
 			stmt.setInt(4, hostSystem.getPort());
 			stmt.setString(5, hostSystem.getAuthorizedKeys());
 			stmt.setString(6, hostSystem.getStatusCd());
+			log.debug("insertSystem: "+stmt.toString());
 			stmt.execute();
 
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -345,6 +349,7 @@ public class SystemDB {
 			stmt.setString(5, hostSystem.getAuthorizedKeys());
 			stmt.setString(6, hostSystem.getStatusCd());
 			stmt.setLong(7, hostSystem.getId());
+			log.debug("updateSystem: "+stmt.toString());
 			stmt.execute();
 			DBUtils.closeStmt(stmt);
 
@@ -371,6 +376,7 @@ public class SystemDB {
 
 			PreparedStatement stmt = con.prepareStatement("delete from system where id=?");
 			stmt.setLong(1, hostSystemId);
+			log.debug("deleteSystem: "+stmt.toString());
 			stmt.execute();
 			DBUtils.closeStmt(stmt);
 
@@ -428,6 +434,7 @@ public class SystemDB {
 		try {
 			con=DBUtils.getConn();
 			PreparedStatement stmt = con.prepareStatement("select * from system");
+			log.debug("getAllSystems_1: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -468,6 +475,7 @@ public class SystemDB {
 
 		try {
 			PreparedStatement stmt = con.prepareStatement("select * from system");
+			log.debug("getAllSystems_2: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -500,6 +508,7 @@ public class SystemDB {
 		try {
 			PreparedStatement stmt = con.prepareStatement("select distinct system_id from system_map m, user_map um, system s where m.profile_id=um.profile_id and um.user_id=?");
 			stmt.setLong(1, userId);
+			log.debug("getAllSystemIdsForUser: "+stmt.toString());
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

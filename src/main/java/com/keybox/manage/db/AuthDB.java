@@ -58,10 +58,12 @@ public class AuthDB {
 
                 //get salt for user
                 String salt = getSaltByUsername(con, auth.getUsername());
+                log.debug("AuthDB_login_salt:"+salt);
                 //login
                 PreparedStatement stmt = con.prepareStatement("select * from users where username=? and password=?");
                 stmt.setString(1, auth.getUsername());
                 stmt.setString(2, EncryptionUtil.hash(auth.getPassword() + salt));
+                log.debug("getSaltByUsername: "+stmt.toString());
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
@@ -109,6 +111,7 @@ public class AuthDB {
                 PreparedStatement stmt = con.prepareStatement("select * from users where id=? and auth_token=?");
                 stmt.setLong(1, userId);
                 stmt.setString(2, authToken);
+                log.debug("getUserByIdAuthToken: "+stmt.toString());
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
@@ -154,6 +157,7 @@ public class AuthDB {
                 stmt.setString(5, null);
             }
             stmt.setLong(6, auth.getId());
+            log.debug("updateLogin: "+stmt.toString());
             stmt.execute();
 
             DBUtils.closeStmt(stmt);
@@ -180,6 +184,7 @@ public class AuthDB {
             PreparedStatement stmt = con.prepareStatement("select * from users where auth_token like ? and password like ?");
             stmt.setString(1, auth.getAuthToken());
             stmt.setString(2, EncryptionUtil.hash(auth.getPrevPassword() + prevSalt));
+            log.debug("updatePassword_selectUser: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
 
@@ -188,6 +193,7 @@ public class AuthDB {
                 stmt.setString(1, EncryptionUtil.hash(auth.getPassword() + salt));
                 stmt.setString(2, salt);
                 stmt.setString(3, auth.getAuthToken());
+                log.debug("updatePassword: "+stmt.toString());
                 stmt.execute();
                 success = true;
             }
@@ -218,6 +224,7 @@ public class AuthDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from users where auth_token like ?");
             stmt.setString(1, authToken);
+            log.debug("getUserByAuthToken_selectUserWithAuthToken: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 Long userId = rs.getLong("id");
@@ -274,6 +281,7 @@ public class AuthDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("select * from users where id like ?");
             stmt.setLong(1, userId);
+            log.debug("getSharedSecret: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 sharedSecret = EncryptionUtil.decrypt(rs.getString("otp_secret"));
@@ -306,6 +314,7 @@ public class AuthDB {
             PreparedStatement stmt = con.prepareStatement("update users set otp_secret=? where auth_token=?");
             stmt.setString(1, EncryptionUtil.encrypt(secret));
             stmt.setString(2, authToken);
+            log.debug("updateSharedSecret: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -330,6 +339,7 @@ public class AuthDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select salt from users where username=?");
             stmt.setString(1, username);
+            log.debug("getSaltByUsername: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if (rs.next() && rs.getString("salt") != null) {
                 salt = rs.getString("salt");
@@ -357,6 +367,7 @@ public class AuthDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select salt from users where auth_token=?");
             stmt.setString(1, authToken);
+            log.debug("getSaltByAuthToken: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if (rs.next() && rs.getString("salt") != null) {
                 salt = rs.getString("salt");
@@ -384,6 +395,7 @@ public class AuthDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from  users where lower(username) like lower(?)");
             stmt.setString(1, uid);
+            log.debug("getUserByUID: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

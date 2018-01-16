@@ -296,6 +296,7 @@ public class UserDB {
             stmt.setString(4, user.getUsername());
             stmt.setString(5, user.getUserType());
             stmt.setLong(6, user.getId());
+            log.debug("updateUserNoCredentials: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
             if (User.ADMINISTRATOR.equals(user.getUserType())) {
@@ -330,6 +331,7 @@ public class UserDB {
             stmt.setString(6, EncryptionUtil.hash(user.getPassword()+salt));
             stmt.setString(7, salt);
             stmt.setLong(8, user.getId());
+            log.debug("updateUserCredentials: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
             if(User.ADMINISTRATOR.equals(user.getUserType())) {
@@ -356,6 +358,7 @@ public class UserDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("delete from users where id=?");
             stmt.setLong(1, userId);
+            log.debug("deleteUser: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -379,6 +382,7 @@ public class UserDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("update users set otp_secret=null where id=?");
             stmt.setLong(1, userId);
+            log.debug("resetSharedSecret: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -410,6 +414,7 @@ public class UserDB {
             PreparedStatement stmt = con.prepareStatement("select * from users where lower(username) like lower(?) and id != ?");
             stmt.setString(1,username);
             stmt.setLong(2, userId);
+            log.debug("isUnique: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
                 isUnique=false;

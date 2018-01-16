@@ -69,6 +69,7 @@ public class PublicKeyDB {
             PreparedStatement stmt = con.prepareStatement("delete from public_keys where (profile_id is null or profile_id not in (select profile_id from user_map where user_id=?)) and user_id=?");
             stmt.setLong(1, userId);
             stmt.setLong(2, userId);
+            log.debug("deleteUnassignedKeysByUser:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -89,6 +90,7 @@ public class PublicKeyDB {
             PreparedStatement stmt = con.prepareStatement("delete from public_keys where profile_id=? and user_id not in (select user_id from user_map where profile_id=?)");
             stmt.setLong(1, profileId);
             stmt.setLong(2, profileId);
+            log.debug("deleteUnassignedKeysByProfile:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -109,6 +111,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("update public_keys set enabled=false where id=?");
             stmt.setLong(1, id);
+            log.debug("disableKey:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -157,6 +160,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("select * from  public_keys where fingerprint like ? and enabled=false");
             stmt.setString(1, fingerprint);
+            log.debug("disableKey:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
@@ -213,6 +217,7 @@ public class PublicKeyDB {
             if(StringUtils.isNotEmpty(sortedSet.getFilterMap().get(FILTER_BY_ENABLED))){
                 stmt.setBoolean(i, Boolean.valueOf(sortedSet.getFilterMap().get(FILTER_BY_ENABLED)));
             }
+            log.debug("getPublicKeySet:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -267,6 +272,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setLong(1, userId);
+            log.debug("getPublicKeySet(SortedSet sortedSet, Long userId):" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -334,6 +340,7 @@ public class PublicKeyDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from  public_keys where id=?");
             stmt.setLong(1, publicKeyId);
+            log.debug("getPublicKey:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -377,6 +384,7 @@ public class PublicKeyDB {
                 stmt.setLong(5, publicKey.getProfile().getId());
             }
             stmt.setLong(6, publicKey.getUserId());
+            log.debug("insertPublicKey:" + stmt.toString());
             stmt.execute();
 
             DBUtils.closeStmt(stmt);
@@ -414,6 +422,7 @@ public class PublicKeyDB {
             }
             stmt.setLong(6, publicKey.getId());
             stmt.setLong(7, publicKey.getUserId());
+            log.debug("updatePublicKey:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -441,6 +450,7 @@ public class PublicKeyDB {
             PreparedStatement stmt = con.prepareStatement("delete from public_keys where id=? and user_id=? and enabled=true");
             stmt.setLong(1, publicKeyId);
             stmt.setLong(2, userId);
+            log.debug("deletePublicKey:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -465,6 +475,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("delete from public_keys where user_id=? and enabled=true");
             stmt.setLong(1, userId);
+            log.debug("deleteUserPublicKeys:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -489,6 +500,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("delete from public_keys where profile_id=?");
             stmt.setLong(1, profileId);
+            log.debug("deleteProfilePublicKeys:" + stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -531,6 +543,7 @@ public class PublicKeyDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from public_keys where (profile_id is null or profile_id in (select profile_id from system_map where system_id=?)) and enabled=true");
             stmt.setLong(1, systemId);
+            log.debug("getPublicKeysForSystem:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 publicKeyList.add(rs.getString(PUBLIC_KEY));
@@ -573,7 +586,8 @@ public class PublicKeyDB {
           } else {
             stmt.setNull(4,Types.NULL);
           }
-
+          
+          log.debug("isKeyRegistered:" + stmt.toString());
           ResultSet rs = stmt.executeQuery();
           if (rs.next()) {
               isDuplicate=true;
@@ -606,6 +620,7 @@ public class PublicKeyDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("select * from public_keys where user_id=? and enabled=true order by key_nm asc");
             stmt.setLong(1, userId);
+            log.debug("getUniquePublicKeysForUser:" + stmt.toString());
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
 

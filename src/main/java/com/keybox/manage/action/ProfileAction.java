@@ -15,6 +15,7 @@
  */
 package com.keybox.manage.action;
 
+import com.keybox.common.db.DBInitServletWithMysql;
 import com.keybox.manage.db.ProfileDB;
 import com.keybox.manage.model.Profile;
 import com.keybox.manage.model.Script;
@@ -23,6 +24,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Result;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -34,7 +37,7 @@ public class ProfileAction extends ActionSupport {
     SortedSet sortedSet = new SortedSet();
     Profile profile = new Profile();
     Script script=null;
-
+    private static Logger log = LoggerFactory.getLogger(ProfileAction.class);
 
     @Action(value = "/manage/viewProfiles",
             results = {
@@ -44,7 +47,7 @@ public class ProfileAction extends ActionSupport {
     public String viewSystems() {
 
         sortedSet = ProfileDB.getProfileSet(sortedSet);
-
+        log.debug("ProfileAction_viewSystems:" + sortedSet.toString());
         return SUCCESS;
     }
 
@@ -55,7 +58,8 @@ public class ProfileAction extends ActionSupport {
             }
     )
     public String saveProfile() {
-
+    		log.debug("ProfileAction_saveProfile:\n");
+    		log.debug("ProfileAction_saveProfile_getId:" + profile.getId());
         if (profile.getId() != null) {
             ProfileDB.updateProfile(profile);
         } else {

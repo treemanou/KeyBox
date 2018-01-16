@@ -80,6 +80,7 @@ public class ProfileDB {
                 stmt.setString(3, "%" + sortedSet.getFilterMap().get(FILTER_BY_USER).toLowerCase() + "%");
                 stmt.setString(4, "%" + sortedSet.getFilterMap().get(FILTER_BY_USER).toLowerCase() + "%");
             }
+            log.debug("getProfileSet: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -117,6 +118,7 @@ public class ProfileDB {
         try {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("select * from  profiles order by nm asc");
+            log.debug("getAllProfiles: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -176,6 +178,7 @@ public class ProfileDB {
         try {
             PreparedStatement stmt = con.prepareStatement("select * from profiles where id=?");
             stmt.setLong(1, profileId);
+            log.debug("getProfile: "+stmt.toString());
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -207,9 +210,10 @@ public class ProfileDB {
         Connection con = null;
         try {
             con = DBUtils.getConn();
-            PreparedStatement stmt = con.prepareStatement("insert into profiles (nm, desc) values (?,?)");
+            PreparedStatement stmt = con.prepareStatement("insert into profiles (nm, `desc`) values (?,?)");
             stmt.setString(1, profile.getNm());
             stmt.setString(2, profile.getDesc());
+            log.debug("insertProfile: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
@@ -232,11 +236,12 @@ public class ProfileDB {
         Connection con = null;
         try {
             con = DBUtils.getConn();
-            PreparedStatement stmt = con.prepareStatement("update profiles set nm=?, desc=? where id=?");
+            PreparedStatement stmt = con.prepareStatement("update profiles set nm=?, `desc`=? where id=?");
             stmt.setString(1, profile.getNm());
             stmt.setString(2, profile.getDesc());
             stmt.setLong(3, profile.getId());
             stmt.execute();
+            log.debug("updateProfile: "+stmt.toString());
             DBUtils.closeStmt(stmt);
 
         } catch (Exception e) {
@@ -260,6 +265,7 @@ public class ProfileDB {
             con = DBUtils.getConn();
             PreparedStatement stmt = con.prepareStatement("delete from profiles where id=?");
             stmt.setLong(1, profileId);
+            log.debug("deleteProfile: "+stmt.toString());
             stmt.execute();
             DBUtils.closeStmt(stmt);
 
